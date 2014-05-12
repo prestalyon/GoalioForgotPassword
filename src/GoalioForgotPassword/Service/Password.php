@@ -83,7 +83,7 @@ class Password extends EventProvider implements ServiceManagerAwareInterface
         $subject = $this->getOptions()->getResetEmailSubjectLine();
         $template = $this->getOptions()->getResetEmailTemplate();
 
-        $message = $mailService->createTextMessage($from, $to, $subject, $template, array('record' => $model));
+        $message = $mailService->createHtmlMessage($from, $to, $subject, $template, array('record' => $model));
 
         $mailService->send($message);
     }
